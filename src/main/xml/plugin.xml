@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<project name="xp-build-plugin-apidoc">
+  <target name="compile" depends="plugin:xcc:compile-main, plugin:xcc:compile-test"/>
+  <target name="clean"/>
+  <target name="validate"/>
+  <target name="prepare"/>
+  <target name="test"/>
+  <target name="integration-test"/>
+  <target name="pre-package"/>
+  <target name="package"/>
+  <target name="post-package"/>
+  <target name="verify"/>
+  <target name="install"/>
+  <target name="publish"/>
+
+  <target name="plugin:xcc:compile-main">
+    <exec
+     executable="xcc"
+     dir="${build.origdir}"
+    >
+      <arg value="-o"/>
+      <arg value="${build.target.classes}"/>
+      <arg value="-sp"/>
+      <arg value="${build.origdir}/src/main/xp"/>
+      <arg value="-sp"/>
+      <arg value="${build.origdir}/src/main/xp"/>
+      <arg value="${build.origdir}/src/main/xp"/>
+    </exec>
+  </target>
+
+  <target name="plugin:xcc:compile-test">
+    <exec
+     executable="xcc"
+     dir="${build.origdir}"
+    >
+      <arg value="-o"/>
+      <arg value="${build.target.testClasses}"/>
+      <arg value="-sp"/>
+      <arg value="${build.origdir}/src/main/xp"/>
+      <arg value="-sp"/>
+      <arg value="${build.origdir}/src/test/xp"/>
+      <arg value="${build.origdir}/src/test/xp"/>
+    </exec>
+  </target>
+</project>

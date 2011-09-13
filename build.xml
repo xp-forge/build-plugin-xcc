@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="xp-build-plaugin-apidoc" basedir=".">
+  <property name="xp.publish.resolver" value="public-authenticated"/>
+  <import file="${user.home}/.ant/xp-build/build-loader.xml"/>
+  <fileset id="build.sources.fileset.php" dir="${basedir}/src/main">
+    <include name="xml/**"/>
+  </fileset>
+
+  <target name="xp.package.sources">
+    <zip destfile="${build.target}/${ivy.module}-${ivy.new.revision}.zip">
+      <zipfileset
+       dir="${build.target}/classes"
+       includes="**/*"
+       prefix="${ivy.module}-${ivy.new.revision}/"
+      />
+    </zip>
+  </target>
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ivy-module
+ version="2.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xp="http://xp-framework.net/ivy/extra"
+ xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+>
+  <info 
+   organisation="net.xp_framework.build"
+   module="plugin-xcc"
+   status="integration"
+   revision="1.0.0"
+  >
+  </info>
+  <configurations>
+    <conf name="compile"/>
+  </configurations>
+  <publications>
+    <artifact name="plugin-xcc" type="plugin" ext="zip" conf="compile"/>
+  </publications>
+  <dependencies>
+  </dependencies>
+</ivy-module>
