@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 <project name="xp-build-plugin-apidoc">
-  <target name="compile" depends="plugin:xcc:compile-main, plugin:xcc:compile-test"/>
+  <target name="compile" depends="plugin:xcc:pre-check, plugin:xcc:compile-main, plugin:xcc:compile-test"/>
   <target name="clean"/>
   <target name="validate"/>
   <target name="prepare"/>
@@ -13,6 +13,12 @@
   <target name="install"/>
   <target name="publish"/>
 
+  <target name="plugin:xcc:pre-check">
+    <pathconvert property="xp.xcc.has-test" setonempty="false">
+      <fileset dir="${build.origdir}/src/test/xp" includes="**/*.xp" erroronmissingdir="false"/>
+    </pathconvert>
+  </target>
+
   <target name="plugin:xcc:compile-main">
     <exec
      executable="xcc"
@@ -22,13 +28,12 @@
       <arg value="${build.target.classes}"/>
       <arg value="-sp"/>
       <arg value="${build.origdir}/src/main/xp"/>
-      <arg value="-sp"/>
-      <arg value="${build.origdir}/src/main/xp"/>
+
       <arg value="${build.origdir}/src/main/xp"/>
     </exec>
   </target>
 
-  <target name="plugin:xcc:compile-test">
+  <target name="plugin:xcc:compile-test" if="xp.xcc.has-main">
     <exec
      executable="xcc"
      dir="${build.origdir}"
@@ -39,6 +44,7 @@
       <arg value="${build.origdir}/src/main/xp"/>
       <arg value="-sp"/>
       <arg value="${build.origdir}/src/test/xp"/>
+
       <arg value="${build.origdir}/src/test/xp"/>
     </exec>
   </target>
