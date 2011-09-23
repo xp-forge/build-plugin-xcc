@@ -14,12 +14,15 @@
   <target name="publish"/>
 
   <target name="plugin:xcc:pre-check">
+    <pathconvert property="xp.xcc.has-main" setonempty="false">
+      <fileset dir="${build.origdir}/src/main/xp" includes="**/*.xp" erroronmissingdir="false"/>
+    </pathconvert>
     <pathconvert property="xp.xcc.has-test" setonempty="false">
       <fileset dir="${build.origdir}/src/test/xp" includes="**/*.xp" erroronmissingdir="false"/>
     </pathconvert>
   </target>
 
-  <target name="plugin:xcc:compile-main">
+  <target name="plugin:xcc:compile-main" if="xp.xcc.has-main">
     <exec
      executable="xcc"
      dir="${build.origdir}"
