@@ -33,7 +33,7 @@
     </exec>
   </target>
 
-  <target name="plugin:xcc:compile-test" if="xp.xcc.has-main">
+  <target name="plugin:xcc:compile-test" if="xp.xcc.has-test">
     <exec
      executable="xcc"
      dir="${build.origdir}"
