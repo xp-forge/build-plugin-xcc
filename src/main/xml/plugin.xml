@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
-<project name="xp-build-plugin-apidoc">
+<project name="xp-build-plugin-xcc">
   <target name="compile" depends="plugin:xcc:pre-check, plugin:xcc:compile-main, plugin:xcc:compile-test"/>
   <target name="clean"/>
   <target name="validate"/>
   <target name="prepare"/>
   <target name="test"/>
   <target name="integration-test"/>
+  <target name="ci-metrics"/>
   <target name="pre-package"/>
   <target name="package"/>
   <target name="post-package"/>
